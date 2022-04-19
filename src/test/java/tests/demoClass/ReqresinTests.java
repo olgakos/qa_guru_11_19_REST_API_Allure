@@ -1,4 +1,4 @@
-package tests;
+package tests.demoClass;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 
-public class ReqresinTestsDemoClassWork {
+public class ReqresinTests {
 
     @Test
     void successfulLogin() {

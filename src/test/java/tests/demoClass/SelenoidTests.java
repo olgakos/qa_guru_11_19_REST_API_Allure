@@ -1,4 +1,4 @@
-package tests;
+package tests.demoClass;
 
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SelenoidTestsDemoClassWork {
+public class SelenoidTests {
 
     // make request to https://selenoid.autotests.cloud/status
     // total is 20

@@ -1,4 +1,4 @@
-package tests;
+package tests.demoClass;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
-public class DemowebshopTestsDemoClassWork {
+public class DemowebshopTests {
     @BeforeAll
     static void beforeAll() {
         RestAssured.baseURI = "http://demowebshop.tricentis.com";

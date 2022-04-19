@@ -1,4 +1,4 @@
-package tests;
+package tests.demoClass;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
@@ -17,7 +17,7 @@ import static listeners.CustomAllureListener.withCustomTemplates;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class BookstoreTestsDemoClassWork {
+public class BookstoreTests {
 
     @BeforeAll
     static void beforeAll() {
@@ -102,6 +102,28 @@ public class BookstoreTestsDemoClassWork {
     }
 
     @Test
+    void getTokenTest2() {
+
+        String data = "{ \"userName\": \"alex\"," +
+                " \"password\": \"asdsad#frew_DFS2\" }";
+
+        given()
+                .contentType(JSON)
+                .body(data)
+                .log().uri()
+                .log().body()
+                .when()
+                .post("/Account/v1/GenerateToken")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .body("status", is("Success"))
+                .body("result", is("User authorized successfully."))
+                .extract().path("token");
+    }
+
+
+    @Test
     void generateTokenWithAllureListenerTest() {
         String data = "{ \"userName\": \"alex\", " +
                 "\"password\": \"asdsad#frew_DFS2\" }";
@@ -109,7 +131,7 @@ public class BookstoreTestsDemoClassWork {
 //        RestAssured.filters(new AllureRestAssured()); move to @BeforeAll
 
         given()
-                .filter(new AllureRestAssured())
+                .filter(new AllureRestAssured()) //! фильтр
                 .contentType(JSON)
                 .body(data)
                 .log().uri()
@@ -124,6 +146,28 @@ public class BookstoreTestsDemoClassWork {
                 .body("result", is("User authorized successfully."))
                 .body("token.size()", (greaterThan(10)));
     }
+
+    @Test
+    void generateTokenWithAllureListenerTest2() {
+
+        String data = "{ \"userName\": \"alex\"," +
+                " \"password\": \"asdsad#frew_DFS2\" }";
+
+        given()
+                .contentType(JSON)
+                .body(data)
+                .log().uri()
+                .log().body()
+                .when()
+                .post("/Account/v1/GenerateToken")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .body("status", is("Success"))
+                .body("result", is("User authorized successfully."))
+                .body("token.size()", (greaterThan(10)));
+    }
+
 
     @Test
     void generateTokenWithCustomAllureListenerTest() {
@@ -153,7 +197,7 @@ public class BookstoreTestsDemoClassWork {
                 "\"password\": \"asdsad#frew_DFS2\" }";
 
         given()
-                .filter(withCustomTemplates())
+                .filter(withCustomTemplates()) //фильтр!
                 .contentType(JSON)
                 .body(data)
                 .log().uri()
