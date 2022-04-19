@@ -9,6 +9,6 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         RestAssured.baseURI = "https://demoqa.com";
-        RestAssured.filters(withCustomTemplates());
+        RestAssured.filters(withCustomTemplates()); //фильтры
     }
 }

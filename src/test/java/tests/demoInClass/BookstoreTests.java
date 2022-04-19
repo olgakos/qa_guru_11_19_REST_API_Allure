@@ -1,4 +1,4 @@
-package tests.demoClass;
+package tests.demoInClass;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
@@ -175,7 +175,7 @@ public class BookstoreTests {
                 "\"password\": \"asdsad#frew_DFS2\" }";
 
         given()
-                .filter(withCustomTemplates())
+                .filter(withCustomTemplates()) //фильтр
                 .contentType(JSON)
                 .body(data)
                 .log().uri()
@@ -222,7 +222,7 @@ public class BookstoreTests {
 
         GenerateTokenResponse tokenResponse =
                 given()
-                        .filter(withCustomTemplates())
+                        .filter(withCustomTemplates()) //фильтр
                         .contentType(JSON)
                         .body(credentials)
                         .log().uri()
@@ -250,7 +250,7 @@ public class BookstoreTests {
 
         GenerateTokenResponseLombok tokenResponse =
                 given()
-                        .filter(withCustomTemplates())
+                        .filter(withCustomTemplates()) //фильтр
                         .contentType(JSON)
                         .body(credentials)
                         .log().uri()

@@ -1,4 +1,4 @@
-package tests.demoClass;
+package tests.demoInClass;
 
 import org.junit.jupiter.api.Test;
 
